@@ -11,6 +11,7 @@ import transactionRoute from './routes/transactionRoute.js'
 import completedOrders from './routes/completedOrders.js'
 import http from 'http';
 import { Server as SocketIOServer } from 'socket.io';
+import path from 'path';
 
 dotenv.config();
 
@@ -35,8 +36,9 @@ app.use(cors());
 // MongoDB Connection
 dbConfig.dbConnection();
 
-app.use('/uploads', express.static('uploads'));
-app.use('/menuUploads', express.static('menuUploads'));
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/menuUploads', express.static(path.join(__dirname, 'menuUploads')));
 
 // Routes
 app.use('/api', restRegistration);

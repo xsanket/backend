@@ -12,9 +12,5 @@
         "dest": "/"
       }
     ],
-    "outputDirectory": ".",
-    "includeFiles": [
-      "uploads/**",
-      "menuUploads/**"
-    ]
+    "outputDirectory": "."
   }
