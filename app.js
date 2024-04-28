@@ -44,12 +44,17 @@ app.use('/api', restLogin);
 app.use('/api', restProfile);
 app.use('/api', orderRouter);
 app.use('/api', menuRoute);
-app.use('/api', transactionRoute); 
+app.use('/api', transactionRoute);
 app.use('/api', completedOrders);
 
 
 
-
+app.get("/", (req, res, next) => {
+  return res.status(200).json({
+    success: true,
+    message: "Welcome to the Restaurant Management System"
+  })
+})
 
 
 io.on('connection', (socket) => {
