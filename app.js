@@ -35,10 +35,9 @@ app.use(cors());
 
 // MongoDB Connection
 dbConfig.dbConnection();
-
 const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/menuUploads', express.static(path.join(__dirname, 'menuUploads')));
+app.use('/uploads', express.static('uploads'));
+app.use('/menuUploads', express.static('menuUploads'));
 
 // Routes
 app.use('/api', restRegistration);
@@ -57,6 +56,9 @@ app.get("/", (req, res, next) => {
     message: "Welcome to the Restaurant Management System"
   })
 })
+app.use('*', (req, res) => {
+  res.status(404).json({ error: 'Not __=found' });
+});
 
 
 io.on('connection', (socket) => {
@@ -70,3 +72,7 @@ io.on('connection', (socket) => {
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+
+export default app;
