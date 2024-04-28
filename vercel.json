@@ -1,16 +1,20 @@
 {
     "version": 2,
-    "builds": [{ 
+    "builds": [
+      {
         "src": "./app.js",
-        "use": "@vercel/node-server" }],
-
-    "routes": [{ 
+        "use": "@vercel/node-server"
+      }
+    ],
+    "routes": [
+      {
         "src": "/(.*)",
-        "dest": "/" 
-     }],
-     "outputDirectory": ".",
+        "dest": "/"
+      }
+    ],
+    "outputDirectory": ".",
     "includeFiles": [
-    "uploads/**",
-    "menuUploads/**"
-  ]
+      "uploads/**",
+      "menuUploads/**"
+    ]
   }
